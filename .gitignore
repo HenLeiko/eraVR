@@ -1,0 +1,6 @@
+/app/databases/
+.env
+wp/
+.git/
+php/
+dbdata/
