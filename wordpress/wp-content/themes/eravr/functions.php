@@ -93,8 +93,8 @@ function eravr_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 53,
+			'width'       => 100,
 			'flex-width'  => true,
 			'flex-height' => true,
 		)

@@ -34,6 +34,7 @@ services:
   webserver:
     depends_on:
       - wordpress
+      - phpmyadmin
     image: nginx:latest
     container_name: webserver
     restart: unless-stopped
@@ -55,6 +56,21 @@ services:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
     command: certonly --webroot --webroot-path=/var/www/html --email jioiiika1337@gmail.com
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+      - app-network
+    ports:
+      - 8080:80
+    env_file: .env
+    environment:
+      - PMA_PORT=3306
+      - PMA_ARBITRARY=1
 
 volumes:
   certbot-etc:
